@@ -146,19 +146,22 @@ const Home = () => {
       const response = await api.get(
         `/filter?city=${selectedCity}&state=${selectedUf}&pintura=${selectedPinturas}`
       );
-      const data = response.data;
 
-      if (data.length === 0) {
+      const data = response.data;
+      console.log(data);
+
+      if (data.pintores.length === 0) {
         setNotFound(true);
         setResults([]);
       } else {
         setNotFound(false);
-        setResults(data);
+        setResults(data.pintores);
       }
     } catch (error) {
-      console.error("Ocorreu um erro ao realizar a pesquisa:", error);
+      console.error('Ocorreu um erro ao realizar a pesquisa:', error);
     }
   };
+
 
   return (
     <>
@@ -272,15 +275,15 @@ const Home = () => {
       )}
       <div className="p-6 max-w-[1344px] mx-auto flex flex-col items-center">
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4">
-          {results.map((result) => (
-            <CardPintor
-              key={result.id}
-              photo={result.image_url}
-              name={result.name}
-              city={result.city}
-              id={result.id}
-            />
-          ))}
+        {results.map((result) => (
+          <CardPintor
+            key={result.id}
+            photo={result.image_url}
+            name={result.name}
+            city={result.city}
+            id={result.id}
+          />
+        ))}
         </div>
       </div>
       <div className="p-6 max-w-[1344px] mx-auto flex flex-col items-center">
