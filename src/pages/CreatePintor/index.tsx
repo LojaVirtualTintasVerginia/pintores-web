@@ -38,8 +38,8 @@ const CreatePintor = () => {
   const [cities, setCities] = useState<string[]>([]);
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    name:  "",
+    email:  "",
     whatsappNumber: "",
     description: "",
     cpf: "",
