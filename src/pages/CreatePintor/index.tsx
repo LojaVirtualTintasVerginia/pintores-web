@@ -186,15 +186,15 @@ const CreatePintor = () => {
     } catch (error) {
       toast.error("Pintor já esta cadastrado!", {
         position: "top-right",
-autoClose: 5000,
-hideProgressBar: false,
-closeOnClick: true,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "dark",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
       });
-    }finally {
+    } finally {
       setLoading(false);
     }
   }
@@ -202,50 +202,48 @@ theme: "dark",
   return (
     <>
       <div>
-        <div className="bg-[#F59103] max-w[1344px] flex justify-between items-center">
+        <div className="max-w-all bg-[#F59103] flex flex-col sm:flex-row justify-between items-center">
           <Link to="/">
-            <img className="ml-[136px] my-4" src={logo} alt="" />
+            <img className="ml-4 my-4 sm:ml-[136px]" src={logo} alt="" />
           </Link>
-          <div className="mr-[299px]">
+          <div className="mr-4 mt-4 sm:mr-[299px]">
             <Link
               to="/"
-              className="inline-flex items-center px-4 py-2   text-[#2E2F7B] hover:text-white text-base font-bold "
+              className="inline-flex items-center px-4 py-2 text-[#2E2F7B] hover:text-white text-base font-bold"
             >
               <FiArrowLeft /> Voltar para home
             </Link>
           </div>
         </div>
       </div>
+
       <div id="page-create-point">
-        <div className=" max-w[1344px] bg-[#F59103] flex justify-between items-center">
+        <div className="max-w-all bg-[#F59103] flex justify-between items-center">
           <form
             onSubmit={handleSubmit}
-            className=" mx-auto flex flex-col m-auto items-center  p-16 max-w[730px] bg-[#f3efef] rounded-lg "
+            className="mx-auto flex flex-col m-auto items-center p-16 max-w-[730px] bg-[#f3efef] rounded-lg"
           >
-            <h1 className="text-4xl text-[#2E2F7B]  font-bold">
+            <h1 className="text-4xl text-[#2E2F7B] font-bold">
               Crie seu perfil de pintor
             </h1>
-            <Dropzone onFileUploaded={setSelectedFile}/>
-            <div className="flex  w-full bg-white">
-              <div className=" md:p-5 rounded-xl w-48">
+            <Dropzone onFileUploaded={setSelectedFile} />
+            <div className="flex flex-col sm:flex-row w-full bg-white">
+              <div className="md:p-5 rounded-xl w-full sm:w-48">
                 <Dropzone_Plus onFileUploadedPlus={setSelectedFile1} />
               </div>
-              <div className=". md:p-5 rounded-xl w-48">
+              <div className="md:p-5 rounded-xl w-full sm:w-48">
                 <Dropzone_Plus onFileUploadedPlus={setSelectedFile2} />
               </div>
-              <div className=" md:p-5 rounded-xl w-48">
+              <div className="md:p-5 rounded-xl w-full sm:w-48">
                 <Dropzone_Plus onFileUploadedPlus={setSelectedFile3} />
               </div>
             </div>
-
             <fieldset>
               <header role="legend">
-                <h2 className="text-4xl text-[#2E2F7B]  font-bold">Dados</h2>
+                <h2 className="text-4xl text-[#2E2F7B] font-bold">Dados</h2>
               </header>
 
               <ToastContainer closeButton={false} />
-    
-
               <div className="field">
                 <label htmlFor="name">Nome Completo</label>
                 <input
@@ -254,6 +252,7 @@ theme: "dark",
                   id="name"
                   onChange={handleInputChange}
                   required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
                 />
               </div>
               <div className="field-group">
@@ -266,6 +265,7 @@ theme: "dark",
                     id="cpf"
                     onChange={handleInputChange}
                     required
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
                   />
                 </div>
               </div>
@@ -310,7 +310,7 @@ theme: "dark",
               </div>
 
               <header role="legend">
-                <h2 className="text-4xl text-[#2E2F7B]  font-bold">Endereço</h2>
+                <h2 className="text-4xl text-[#2E2F7B] font-bold">Endereço</h2>
               </header>
               <div className="field-group">
                 <div className="field">

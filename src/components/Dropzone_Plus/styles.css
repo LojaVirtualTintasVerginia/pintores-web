@@ -44,3 +44,25 @@
     margin-bottom: 8px;
   }
 }
+
+@media (max-width: 480px) {
+  .dropzone-plus {
+    height: 80px;
+    margin-top: 16px;
+  }
+
+  .dropzone-plus img {
+    height: 120px;
+    margin-bottom: 4px;
+  }
+
+  .dropzone-plus p {
+    font-size: 8px;
+  }
+
+  .dropzone-plus p svg {
+    width: 12px;
+    height: 12px;
+    margin-bottom: 2px;
+  }
+}

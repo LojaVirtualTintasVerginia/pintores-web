@@ -54,6 +54,8 @@ const Home = () => {
   const [pinturas, setPinturas] = useState<Item[]>([]);
   const [selectedPinturas, setSelectedPinturas] = useState<string[]>([]);
   const [notFound, setNotFound] = useState<boolean>(false);
+  const [visibleElements, setVisibleElements] = useState(20);
+  const [showButton, setShowButton] = useState(true);
 
   useEffect(() => {
     const fetchPintores = async () => {
@@ -161,6 +163,11 @@ const Home = () => {
       console.error("Ocorreu um erro ao realizar a pesquisa:", error);
     }
   };
+
+  const handleLoadMore = () => {
+    setVisibleElements(prev => prev + 20);
+    setShowButton(false);
+  }
 
   return (
     <>
@@ -287,7 +294,7 @@ const Home = () => {
       </div>
       <div className="p-6 max-w-[1344px] mx-auto flex flex-col items-center">
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4">
-          {pintores.slice(0, 20).map((pintor) => {
+          {pintores.slice(0, visibleElements).map((pintor) => {
             if (pintor.status === "active") {
               return (
                 <CardPintor
@@ -305,9 +312,13 @@ const Home = () => {
       </div>
       <div className="max-w-[1344px] mx-auto flex flex-col items-center my-10">
         <p className="inline-flex items-center">
-          <button className="w-44 h-12 inline-block rounded-xl bg-[#eb7700] p-3 text-center text-xl font-semibold text-white hover:bg-blue-700">
-            VER TODOS
-          </button>
+        {showButton && (
+        <button onClick={handleLoadMore} 
+        className="w-44 h-12 inline-block rounded-xl bg-[#eb7700] p-3 text-center text-xl font-semibold text-white hover:bg-[#2E2F7B]"
+        >
+          Carregar mais
+        </button>
+      )}
         </p>
       </div>
       <div className="bg-[#F1F2F2] mx-auto flex flex-wrap justify-center">
