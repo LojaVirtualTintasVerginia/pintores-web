@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
 import api from "../../services/api";
 import axios from "axios";
-import Alert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import { ToastContainer, toast } from "react-toastify";
@@ -226,7 +225,7 @@ theme: "dark",
             <h1 className="text-4xl text-[#2E2F7B]  font-bold">
               Crie seu perfil de pintor
             </h1>
-            <Dropzone onFileUploaded={setSelectedFile} />
+            <Dropzone onFileUploaded={setSelectedFile}/>
             <div className="flex  w-full bg-white">
               <div className=" md:p-5 rounded-xl w-48">
                 <Dropzone_Plus onFileUploadedPlus={setSelectedFile1} />
