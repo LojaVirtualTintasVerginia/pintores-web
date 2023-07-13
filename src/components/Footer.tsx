@@ -1,6 +1,5 @@
 import logofooter from '../assets/grupo.png';
 import { FiShoppingCart } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
 import { FaHome, FaWhatsapp, FaFacebook, FaPinterest, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 export function Footer() {

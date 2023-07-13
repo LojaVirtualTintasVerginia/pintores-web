@@ -11,7 +11,6 @@ import logo from "../../assets/logo.png";
 import { Footer } from "../../components/Footer";
 import { CreateBannerOferta } from "../../components/CreateBannerOferta";
 
-
 interface Pintor {
   pintor: {
     photo: string;
@@ -85,25 +84,27 @@ const Perfil = () => {
     <>
       <div id="inicio"></div>
       <div>
-        <div className="bg-[#F59103] max-w[1344px] flex justify-between items-center">
-          <Link to="/">
-            <img className="ml-[136px] my-4" src={logo} alt="" />
-          </Link>
-          <div className="mr-[299px]">
+        <div className="bg-[#F59103] max-w-[1344px] mx-auto px-4 py-2 flex flex-wrap justify-between items-center">
+          <div className="w-full md:w-auto">
+            <Link to="/">
+              <img className="mx-auto md:ml-[136px] my-4" src={logo} alt="" />
+            </Link>
+          </div>
+          <div className="w-full md:w-auto mt-4 md:mt-0 text-center md:text-right">
             <Link
               to="/"
               className="inline-flex items-center px-4 py-2 text-[#2E2F7B] hover:text-white text-base font-bold"
             >
-              <FiArrowLeft /> Voltar para home
+              <FiArrowLeft className="mr-1" /> Voltar para home
             </Link>
           </div>
         </div>
         <div className="w-2/3 mx-auto p-2 sm:p-4 h-auto rounded-2xl flex flex-col sm:flex-row gap-5 select-none">
-          <img
-            className="h-[384px] w-[408px] rounded-[30px]"
-            src={pintores?.pintor?.photo}
-            alt=""
-          />
+        <img
+  className="h-auto w-full max-w-[408px] rounded-[30px]"
+  src={pintores?.pintor?.photo}
+  alt=""
+/>
 
           <div className="flex flex-col flex-1 gap-5 sm:p-2">
             <div className="flex flex-1 flex-col gap-3">

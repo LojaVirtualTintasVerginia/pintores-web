@@ -158,10 +158,9 @@ const Home = () => {
         setResults(data.pintores);
       }
     } catch (error) {
-      console.error('Ocorreu um erro ao realizar a pesquisa:', error);
+      console.error("Ocorreu um erro ao realizar a pesquisa:", error);
     }
   };
-
 
   return (
     <>
@@ -175,26 +174,26 @@ const Home = () => {
             </span>
           </a>
 
-          <div className="flex items-center">
+          <div className="flex flex-wrap justify-center items-center">
             <a
               href="https://www.tintasverginia.com.br/lojas"
-              className="inline-flex mr-4 items-center px-4 w-52 h-12 py-2 border border-[#2E2F7B] hover:bg-[#2E2F7B] text-[#2E2F7B] hover:text-white text-base font-bold rounded-xl"
+              className="inline-flex mb-2 mr-2 items-center justify-center w-full md:w-auto px-4 h-12 py-2 border border-[#2E2F7B] hover:bg-[#2E2F7B] text-[#2E2F7B] hover:text-white text-base font-bold rounded-xl"
             >
-              <FaHome size={20} />
-              <span className="ml-2">LOJAS VERGINIA</span>
+              <FaHome size={20} className="mr-2" />
+              <span className="hidden md:inline-block">LOJAS VERGINIA</span>
             </a>
             <a
               href="https://www.tintasverginia.com.br/"
-              className="inline-flex items-center px-4 w-52 h-12 py-2 border border-[#2E2F7B] hover:bg-[#2E2F7B] text-[#2E2F7B] hover:text-white text-base font-bold rounded-xl"
+              className="inline-flex items-center justify-center w-full md:w-auto px-4 h-12 py-2 border border-[#2E2F7B] hover:bg-[#2E2F7B] text-[#2E2F7B] hover:text-white text-base font-bold rounded-xl"
             >
-              <FaShoppingCart size={20} />
-              <span className="ml-2">COMPRE ONLINE</span>
+              <FaShoppingCart size={20} className="mr-2" />
+              <span className="hidden md:inline-block">COMPRE ONLINE</span>
             </a>
           </div>
         </div>
       </nav>
       <div className="flex flex-wrap items-center justify-between mx-auto">
-        <img src={backgroud} alt="" />
+        <img className="w-full h-auto" src={backgroud} alt="" />
         <div className=" flex flex-wrap items-center justify-center max-w-[1344px] mx-auto bg-[#2E2F7B]  p-6 rounded-xl mt-[-30px] ">
           <div className="w-full md:w-auto md:mr-4 mb-4 md:mb-0">
             <select
@@ -275,15 +274,15 @@ const Home = () => {
       )}
       <div className="p-6 max-w-[1344px] mx-auto flex flex-col items-center">
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4">
-        {results.map((result) => (
-          <CardPintor
-            key={result.id}
-            photo={result.image_url}
-            name={result.name}
-            city={result.city}
-            id={result.id}
-          />
-        ))}
+          {results.map((result) => (
+            <CardPintor
+              key={result.id}
+              photo={result.image_url}
+              name={result.name}
+              city={result.city}
+              id={result.id}
+            />
+          ))}
         </div>
       </div>
       <div className="p-6 max-w-[1344px] mx-auto flex flex-col items-center">
@@ -321,16 +320,18 @@ const Home = () => {
         />
       </div>
 
-      <div className="w-screen relative bg-cover bg-center bg-no-repeat">
-        <img className="w-full" src={pintor} alt="" />
-        <Link
-          to="/create-pintor"
-          className="absolute left-80 m transform -translate-x-1/2 top-96 w-56 h-14 inline-block rounded-xl bg-[#eb7700] p-3 text-center text-xl font-semibold text-white hover:bg-blue-700"
-          style={{ zIndex: 1 }}
-        >
-          CADASTRAR-SE
-        </Link>
-      </div>
+      <div className="relative">
+  <img className="w-full" src={pintor} alt="" />
+  <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <Link
+      to="/create-pintor"
+      className="w-full md:w-56 h-14 inline-block rounded-xl bg-[#eb7700] p-3 text-center text-xl font-semibold text-white hover:bg-blue-700"
+      style={{ zIndex: 1 }}
+    >
+      CADASTRAR-SE
+    </Link>
+  </div>
+</div>
       <Footer />
     </>
   );
