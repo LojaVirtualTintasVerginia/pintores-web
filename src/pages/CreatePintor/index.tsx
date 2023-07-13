@@ -201,11 +201,17 @@ const CreatePintor = () => {
 
   return (
     <>
-      <div>
-        <div className="max-w-all bg-[#F59103] flex flex-col sm:flex-row justify-between items-center">
-          <Link to="/">
-            <img className="ml-4 my-4 sm:ml-[136px]" src={logo} alt="" />
-          </Link>
+          <nav className="bg-white border-gray-200 dark:bg-[#F59103]">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
+          <a href="/" className="flex items-center">
+            <span className="self-center text-3xl font-bold whitespace-nowrap dark:text-white">
+              <p>BANCO</p>
+              <p>DE PINTORES</p>
+              <p>VERGINIA</p>
+            </span>
+          </a>
+
+          <div className="flex flex-wrap justify-center items-center">
           <div className="mr-4 mt-4 sm:mr-[299px]">
             <Link
               to="/"
@@ -213,9 +219,11 @@ const CreatePintor = () => {
             >
               <FiArrowLeft /> Voltar para home
             </Link>
+
           </div>
         </div>
-      </div>
+        </div>
+      </nav>
 
       <div id="page-create-point">
         <div className="max-w-all bg-[#F59103] flex justify-between items-center">
